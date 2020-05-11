@@ -1,0 +1,20 @@
+{% extends "base_blog.html" %}
+
+{% block title %}
+    PublishingHouse
+{% endblock %}
+
+{% block content %}
+    Главные издательства:   <br>
+    <ul class="list-group">
+        {% for house in publishing_house %}
+        <li class="list-group-item"> {{ house.name }}
+            <ul class="list-group">
+                {% for book in house.house.all %}
+                    <li class="list-group-item"> {{ book.title }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

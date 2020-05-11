@@ -1,0 +1,20 @@
+{% extends 'base_blog.html' %}
+
+{% block title %}
+    Friends
+{% endblock %}
+
+{% block content %}
+    Информация о людях и книгах, которые они взяли.
+    <ul class="list-group">
+        {% for friend in friends %}
+        <li class="list-group-item"> {{ friend.name }}
+            <ul class="list-group">
+                {% for book in friend.name_of_friend.all %}
+                    <li class="list-group-item"> {{ book.title }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
